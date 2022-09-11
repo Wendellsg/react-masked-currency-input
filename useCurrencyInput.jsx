@@ -2,18 +2,9 @@ import React, { useRef, useState } from "react";
 import { currencyFormater } from "./utils/CurrencyFormater";
 import  './styles.module.css'
 
-interface CurrencyInputTypes {
-  rawValue: number;
-  maskedValue: string;
-}
-
-interface CurrencyInputPropsTypes {
-    className?: string;
-    styles?: React.CSSProperties
-}
 
 export function maskedCurrencyInput() {
-  const [currencyInput, setCurrencyInput] = useState<CurrencyInputTypes>({
+  const [currencyInput, setCurrencyInput] = useState({
     rawValue: 0,
     maskedValue: currencyFormater(0),
   });
@@ -32,7 +23,7 @@ export function maskedCurrencyInput() {
     "9",
     "Backspace",
   ];
-  const handleChange = (key: string) =>{
+  const handleChange = (key) =>{
     if (!accetablekeys.includes(key)) return;
 
     let newValue = "";
@@ -52,7 +43,7 @@ export function maskedCurrencyInput() {
       rawValue: Number(newValue),
     });
   }
-  const CurrencyInput: React.FC<CurrencyInputPropsTypes> = ({className, styles}) => (
+  const CurrencyInput = ({className, styles}) => (
     <input
       className={className||'MaskedInput'}
       onKeyDown={(e) => handleChange(e.key)}
