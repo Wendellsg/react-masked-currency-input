@@ -1,0 +1,9 @@
+.MaskedInput {
+    border-radius: 7px;
+    height: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    width: 200px;
+    padding: 2px 5px;
+    box-sizing:border-box;
+    outline: 1px rgb(141, 141, 141);
+}
